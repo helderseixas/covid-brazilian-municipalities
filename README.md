@@ -18,13 +18,13 @@ We utilized the stochastic differential evolution algorithm [4] in the Python Sc
 
 ## Cross-correlation analysis
 
-We conducted a cross-correlation analysis for each municipality between $\Delta_{H}$ and $R_{0}$. The cross-correlation coefficient $C_{k}(x,y)$, given by Equation~\ref{eq:cross_correlation_function}, was computed, where $x_{t}$ and $y_{t}$ denote the time series, and $k$ represents the lag [5].
+We conducted a cross-correlation analysis for each municipality between $\Delta_{H}$ and $R_{0}$. The cross-correlation coefficient $C_{k}(x,y)$, given by the equation below, was computed, where $x_{t}$ and $y_{t}$ denote the time series, and $k$ represents the lag [5].
 
 $$
 C_{k}(x,y) = \frac{\sum(x_{t+k} - \overline{x})(y_{t}-\overline{y})}{\sqrt{\sum(x_{t} - \overline{x})^{2}} \sqrt{\sum(y_{t} - \overline{y})^{2}} }
 $$
 
-To establish the significance limits for cross-correlation,  we introduced adjusted factors to mitigate spurious correlations resulting from autocorrelated time series, as suggested by Dean and Dunsmuir [6]. We calculated the weighted cross-correlation significance limits using Equation~\ref{eq:cross_correlation_significance}, where $a$ and $b$ denote the autocorrelation coefficients at lag 1 for $x_{t}$ and $y_{t}$, respectively.
+To establish the significance limits for cross-correlation,  we introduced adjusted factors to mitigate spurious correlations resulting from autocorrelated time series, as suggested by Dean and Dunsmuir [6]. We calculated the weighted cross-correlation significance limits using the equation below, where $a$ and $b$ denote the autocorrelation coefficients at lag 1 for $x_{t}$ and $y_{t}$, respectively.
 
 $$
 \pm\frac{1.96}{\sqrt{n}}\sqrt{\frac{1+ab}{1-ab}}
@@ -34,7 +34,7 @@ Before the cross-correlation analysis, we conducted stationarity transformations
 
 We assessed the stationarity of the transformed time series using the Augmented Dickey-Fuller (ADF) test [7]. Furthermore, the Ljung–Box test [8] at lag one was conducted to verify that despite prewhitening, $\Delta_{H}^{''}$ remained non-white noise.
 
-Finally, for each municipality and specific year, we computed cross-correlation analyses $C_{k}(\Delta_{H}^{''}, R_{0}^{'})$. Only significant $C_{k}(x,y)$ values were considered as determined by the Equation \ref{eq:cross_correlation_significance}. The \textit{xcorr} method from the Python library \textit{matplotlib.pyplot} was utilized for estimating sample cross-correlation coefficients, while the ADF test and Ljung–Box test were performed using the Python library _statsmodels_.
+Finally, for each municipality and specific year, we computed cross-correlation analyses $C_{k}(\Delta_{H}^{''}, R_{0}^{'})$. Only significant $C_{k}(x,y)$ values were considered. The _xcorr_ method from the Python library _matplotlib.pyplot_ was utilized for estimating sample cross-correlation coefficients, while the ADF test and Ljung–Box test were performed using the Python library _statsmodels_.
 
 ## References
 [1] DATASUS. Banco de Dados de Síndrome Respiratória Aguda Grave - incluindo dados da COVID-19. Database: Gov.BR [Internet]. Available from: https://opendatasus.saude.gov.br. Accessed: 2023 November 23. 2022.
