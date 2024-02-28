@@ -34,7 +34,7 @@ Before the cross-correlation analysis, we conducted stationarity transformations
 
 We assessed the stationarity of the transformed time series using the Augmented Dickey-Fuller (ADF) test [7]. Furthermore, the Ljung–Box test [8] at lag one was conducted to verify that despite prewhitening, $\Delta_{H}^{''}$ remained non-white noise.
 
-Finally, for each municipality and specific year, we computed cross-correlation analyses $C_{k}(\Delta_{H}^{''}, R_{0}^{'})$. Only significant $C_{k}(x,y)$ values were considered as determined by the Equation \ref{eq:cross_correlation_significance}. The \textit{xcorr} method from the Python library \textit{matplotlib.pyplot} was utilized for estimating sample cross-correlation coefficients, while the ADF test and Ljung–Box test were performed using the Python library \textit{statsmodels}.
+Finally, for each municipality and specific year, we computed cross-correlation analyses $C_{k}(\Delta_{H}^{''}, R_{0}^{'})$. Only significant $C_{k}(x,y)$ values were considered as determined by the Equation \ref{eq:cross_correlation_significance}. The \textit{xcorr} method from the Python library \textit{matplotlib.pyplot} was utilized for estimating sample cross-correlation coefficients, while the ADF test and Ljung–Box test were performed using the Python library _statsmodels_.
 
 ## References
 [1] DATASUS. Banco de Dados de Síndrome Respiratória Aguda Grave - incluindo dados da COVID-19. Database: Gov.BR [Internet]. Available from: https://opendatasus.saude.gov.br. Accessed: 2023 November 23. 2022.
