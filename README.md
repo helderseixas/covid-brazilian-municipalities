@@ -20,15 +20,15 @@ We utilized the stochastic differential evolution algorithm [4] in the Python Sc
 
 We conducted a cross-correlation analysis for each municipality between $\Delta_{H}$ and $R_{0}$. The cross-correlation coefficient $C_{k}(x,y)$, given by Equation~\ref{eq:cross_correlation_function}, was computed, where $x_{t}$ and $y_{t}$ denote the time series, and $k$ represents the lag [5].
 
-\[
+$$
 C_{k}(x,y) = \frac{\sum(x_{t+k} - \overline{x})(y_{t}-\overline{y})}{\sqrt{\sum(x_{t} - \overline{x})^{2}} \sqrt{\sum(y_{t} - \overline{y})^{2}} }
-\]
+$$
 
 To establish the significance limits for cross-correlation,  we introduced adjusted factors to mitigate spurious correlations resulting from autocorrelated time series, as suggested by Dean and Dunsmuir [6]. We calculated the weighted cross-correlation significance limits using Equation~\ref{eq:cross_correlation_significance}, where $a$ and $b$ denote the autocorrelation coefficients at lag 1 for $x_{t}$ and $y_{t}$, respectively.
 
-\[
+$$
 \pm\frac{1.96}{\sqrt{n}}\sqrt{\frac{1+ab}{1-ab}}
-\]
+$$
 
 Before the cross-correlation analysis, we conducted stationarity transformations for the time series $\Delta_{H}$ and $R_{0}$ of the municipalities. We applied a 7-day differencing to generate a new time series denoted as $\Delta_{H}^{'}$ and $R_{0}^{'}$. Additionally, $\Delta_{H}^{'}$ was prewhitened using an ARIMA model of order (28, 0, 7), yielding $\Delta_{H}^{''}$.
 
