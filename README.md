@@ -12,9 +12,17 @@ The *effective reproduction number* ($R_{t}$) is an essential indicator in epide
 
 The application of the *epyestim* method began with specifying the distribution for the Covid-19 generation time, approximating it based on the serial interval reported by Bi et al. [3] as $\sim \text{Gamma}(2.29, 0.36)$, with an average duration of 6.36 days. Furthermore, the delay between infection and symptom onset, representing the incubation period, was defined as $\sim \text{Lognormal}(1.57, 0.42)$, with an average time of 5.93 days [3]. Other parameters configured in *epyestim* included a 28-day window size to smooth the cases time series, a 14-day window size for the final rolling average, one hundred bootstrap samples for estimating $R_{t}$, and a prior $R_{t}$ $\sim \text{Gamma}(9.90, 9.28)$.
 
+## Parameter optimization
+
+We utilized the stochastic differential evolution algorithm [4] in the Python Scipy library to optimize the model parameters. We configured this algorithm with specific parameters for optimization. These parameters included a maximum of 10,000 generations and a multiplier factor of five, ensuring that the total population size was five times the quantity of model parameters. Additionally, we employed an update strategy for the best solution vector once per generation, utilized the mutation strategy 'best1bin', and set a relative tolerance parameter of 0.01. For stringent convergence, we applied an absolute tolerance parameter of 0. We defined the mutation parameter range as (0.5, 1), with a recombination parameter 0.7. We initialized the algorithm using the Latin hypercube strategy and implemented an additional local optimization step after the global optimization process, employing the L-BFGS-B method.
+
+
+
 ## References
 [1] DATASUS. Banco de Dados de Síndrome Respiratória Aguda Grave - incluindo dados da COVID-19. Database: Gov.BR [Internet]. Available from: https://opendatasus.saude.gov.br. Accessed: 2023 November 23. 2022.
 
 [2] Anne Cori, Neil M Ferguson, Christophe Fraser, and Simon Cauchemez. "A new framework and software to estimate time-varying reproduction numbers during epidemics." *American Journal of Epidemiology* 178, no. 9 (2013): 1505-1512.
 
 [3] Qifang Bi, Yongsheng Wu, Shujiang Mei, Chenfei Ye, Xuan Zou, Zhen Zhang, Xiaojian Liu, Lan Wei, Shaun A Truelove, Tong Zhang, and others. "Epidemiology and transmission of COVID-19 in 391 cases and 1286 of their close contacts in Shenzhen, China: a retrospective cohort study." *The Lancet Infectious Diseases* 20, no. 8 (2020): 911-919.
+
+[4] Storn, R., & Price, K. (1997). Differential evolution-a simple and efficient heuristic for global optimization over continuous spaces. *Journal of Global Optimization*, 11(4), 341.
