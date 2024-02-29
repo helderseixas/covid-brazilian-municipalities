@@ -40,7 +40,13 @@ We assessed the stationarity of the transformed time series using the Augmented 
 
 Finally, for each municipality and specific year, we computed cross-correlation analyses $C_{k}(\Delta_{H}^{''}, R_{0}^{'})$. Only significant $C_{k}(x,y)$ values were considered. The _xcorr_ method from the Python library _matplotlib.pyplot_ was utilized for estimating sample cross-correlation coefficients, while the ADF test and Ljung–Box test were performed using the Python library _statsmodels_.
 
+## Data
+
+Data used in this work are available in the directory 'data'. 
+
 ## Code
+
+Python codes used in this work are available in the directory 'code'.
 
 ## References
 [1] DATASUS. Banco de Dados de Síndrome Respiratória Aguda Grave - incluindo dados da COVID-19. Database: Gov.BR [Internet]. Available from: https://opendatasus.saude.gov.br. Accessed: 2023 November 23. 2022.
